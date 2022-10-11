@@ -1,3 +1,5 @@
+package com.dkl.hudi.spark3_1
+
 import org.apache.spark.sql.SparkSession
 
 /**
