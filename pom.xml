@@ -6,173 +6,17 @@
 
     <groupId>com.dkl.blog.hudi</groupId>
     <artifactId>hudi-demo</artifactId>
+    <packaging>pom</packaging>
     <version>1.0</version>
+    <modules>
+        <module>hudi0.12_spark3.1</module>
+        <module>hudi0.12_spark2.4</module>
+    </modules>
 
     <properties>
         <maven.compiler.source.version>1.8</maven.compiler.source.version>
         <maven.compiler.target.version>1.8</maven.compiler.target.version>
         <encoding>UTF-8</encoding>
-        <spark.version>3.1.2</spark.version>
-        <scala.version>2.12.10</scala.version>
-        <scala.compat.version>2.12</scala.compat.version>
-        <hudi.version>0.12.0</hudi.version>
     </properties>
-    <dependencies>
-        <dependency>
-            <groupId>org.scala-lang</groupId>
-            <artifactId>scala-library</artifactId>
-            <version>${scala.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.scala-lang</groupId>
-            <artifactId>scala-compiler</artifactId>
-            <version>${scala.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.spark</groupId>
-            <artifactId>spark-core_${scala.compat.version}</artifactId>
-            <version>${spark.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.spark</groupId>
-            <artifactId>spark-sql_${scala.compat.version}</artifactId>
-            <version>${spark.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.spark</groupId>
-            <artifactId>spark-hive_${scala.compat.version}</artifactId>
-            <version>${spark.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.hudi</groupId>
-            <artifactId>hudi-spark3.1-bundle_${scala.compat.version}</artifactId>
-            <version>${hudi.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.hudi</groupId>
-            <artifactId>hudi-utilities-bundle_${scala.compat.version}</artifactId>
-            <version>${hudi.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.json</groupId>
-            <artifactId>json</artifactId>
-            <version>20200518</version>
-        </dependency>
-    </dependencies>
-    <repositories>
-        <repository>
-            <id>nexus-aliyun</id>
-            <name>Nexus aliyun</name>
-            <layout>default</layout>
-            <url>http://maven.aliyun.com/nexus/content/groups/public</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-        </repository>
-        <repository>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-            <id>hortonworks.extrepo</id>
-            <name>Hortonworks HDP</name>
-            <url>http://repo.hortonworks.com/content/repositories/releases</url>
-        </repository>
-        <!--<repository>-->
-        <!--<id>snapshots</id>-->
-        <!--<name>Snapshots</name>-->
-        <!--<url>http://maven.aliyun.com/nexus/content/repositories/snapshots/</url>-->
-        <!--<releases>-->
-        <!--<enabled>false</enabled>-->
-        <!--</releases>-->
-        <!--<snapshots>-->
-        <!--<enabled>true</enabled>-->
-        <!--<updatePolicy>never</updatePolicy>-->
-        <!--</snapshots>-->
-        <!--</repository>-->
 
-        <repository>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-            <id>hortonworks.other</id>
-            <name>Hortonworks Other Dependencies</name>
-            <url>http://repo.hortonworks.com/content/groups/public</url>
-        </repository>
-    </repositories>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.scala-tools</groupId>
-                <artifactId>maven-scala-plugin</artifactId>
-                <version>2.15.2</version>
-                <executions>
-                    <execution>
-                        <id>scala-compile-first</id>
-                        <goals>
-                            <goal>compile</goal>
-                        </goals>
-                        <configuration>
-                            <includes>
-                                <include>**/*.scala</include>
-                            </includes>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>scala-test-compile</id>
-                        <goals>
-                            <goal>testCompile</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>${maven.compiler.source.version}</source>
-                    <target>${maven.compiler.target.version}</target>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>2.4</version>
-                <!-- The configuration of the plugin -->
-                <configuration>
-                    <!-- Configuration of the archiver -->
-                    <archive>
-
-                        <!--
-                            生成的jar中，不要包含pom.xml和pom.properties这两个文件
-                        -->
-                        <addMavenDescriptor>false</addMavenDescriptor>
-
-                        <!-- Manifest specific configuration -->
-                        <manifest>
-                            <!--
-                                是否要把第三方jar放到manifest的classpath中
-                            -->
-                            <addClasspath>true</addClasspath>
-                            <!--
-                               生成的manifest中classpath的前缀，因为要把第三方jar放到lib目录下，所以classpath的前缀是lib/
-                           -->
-                            <classpathPrefix>lib/</classpathPrefix>
-                        </manifest>
-                    </archive>
-
-                </configuration>
-            </plugin>
-
-        </plugins>
-    </build>
 </project>
