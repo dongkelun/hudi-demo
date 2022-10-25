@@ -11,6 +11,7 @@
     <modules>
         <module>hudi0.12_spark3.1</module>
         <module>hudi0.12_spark2.4</module>
+        <module>java-client</module>
     </modules>
 
     <properties>
