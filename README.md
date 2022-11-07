@@ -16,6 +16,3 @@ Apache Hudi 代码示例.
 ### 源码分析
 * [Hudi源码|bootstrap源码分析总结（写Hudi）](https://mp.weixin.qq.com/s/9SOH3kOid0GSN31hF6M4dg)
 * [Hudi preCombinedField 总结(二)-源码分析](https://mp.weixin.qq.com/s/vrBvB0SOCNPrMKHSUn4VOg)
-
-## 关注我
-![](https://img-blog.csdnimg.cn/8bf1e86109a3469886fedbe1ce36d0a4.png#pic_center)
