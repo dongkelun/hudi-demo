@@ -16,3 +16,12 @@ Apache Hudi 代码示例.
 ### 源码分析
 * [Hudi源码|bootstrap源码分析总结（写Hudi）](https://mp.weixin.qq.com/s/9SOH3kOid0GSN31hF6M4dg)
 * [Hudi preCombinedField 总结(二)-源码分析](https://mp.weixin.qq.com/s/vrBvB0SOCNPrMKHSUn4VOg)
+* [Hudi Clean Policy 清理策略实现分析](https://mp.weixin.qq.com/s/YbVnkVyf7EbTAxNshX9gRA)
+* [Hudi Clean 清理文件实现分析](https://mp.weixin.qq.com/s/97CpClzK1skczpszc8VeEg)
+* [Hudi查询类型/视图总结](https://mp.weixin.qq.com/s/rdvCSHV5ObUSGMl9FciMfA)
+* [Hudi Spark SQL源码学习总结-Create Table](https://mp.weixin.qq.com/s/8LiNiFe_kUS0oyN27PGTwg)
+* [Hudi Spark SQL源码学习总结-CTAS](https://mp.weixin.qq.com/s/djuWfw0_abiifNnE7Usghg)
+* [Hudi Spark源码学习总结-df.write.format("hudi").save](https://mp.weixin.qq.com/s/FlKoYL4ZqtYdzoxUOWx31w)
+* [Hudi Spark源码学习总结-spark.read.format("hudi").load](https://mp.weixin.qq.com/s/FiJIyyondhZoofSWRTzADw)
+* [Hudi Spark SQL源码学习总结-select（查询）](https://mp.weixin.qq.com/s/slscIdvbCB_BUPdWlFVt1Q)
+
