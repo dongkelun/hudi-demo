@@ -21,6 +21,38 @@
         <maven.compiler.target.version>1.8</maven.compiler.target.version>
         <encoding>UTF-8</encoding>
         <hadoop.version>2.10.1</hadoop.version>
+        <scala.version>2.11.12</scala.version>
+        <scala.binary.version>2.11</scala.binary.version>
+        <scala12.version>2.12.10</scala12.version>
+        <spark.version>2.4.4</spark.version>
+        <spark3.version>3.1.2</spark3.version>
     </properties>
 
+    <profiles>
+        <profile>
+            <id>scala-2.12</id>
+            <properties>
+                <scala.version>${scala12.version}</scala.version>
+                <scala.binary.version>2.12</scala.binary.version>
+            </properties>
+            <activation>
+                <property>
+                    <name>scala-2.12</name>
+                </property>
+            </activation>
+        </profile>
+        <profile>
+            <id>spark-3.1</id>
+            <properties>
+                <scala.version>${scala12.version}</scala.version>
+                <scala.binary.version>2.12</scala.binary.version>
+                <spark.version>${spark3.version}</spark.version>
+            </properties>
+            <activation>
+                <property>
+                    <name>spark-3.1</name>
+                </property>
+            </activation>
+        </profile>
+    </profiles>
 </project>

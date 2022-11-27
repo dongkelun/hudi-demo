@@ -20,10 +20,15 @@
         <encoding>UTF-8</encoding>
         <spark.version>3.1.2</spark.version>
         <scala.version>2.12.10</scala.version>
-        <scala.compat.version>2.12</scala.compat.version>
+        <scala.binary.version>2.12</scala.binary.version>
         <hudi.version>0.12.0</hudi.version>
     </properties>
     <dependencies>
+        <dependency>
+            <groupId>com.dkl.blog.hudi</groupId>
+            <artifactId>common</artifactId>
+            <version>${project.version}</version>
+        </dependency>
         <dependency>
             <groupId>org.scala-lang</groupId>
             <artifactId>scala-library</artifactId>
@@ -36,27 +41,27 @@
         </dependency>
         <dependency>
             <groupId>org.apache.spark</groupId>
-            <artifactId>spark-core_${scala.compat.version}</artifactId>
+            <artifactId>spark-core_${scala.binary.version}</artifactId>
             <version>${spark.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.spark</groupId>
-            <artifactId>spark-sql_${scala.compat.version}</artifactId>
+            <artifactId>spark-sql_${scala.binary.version}</artifactId>
             <version>${spark.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.spark</groupId>
-            <artifactId>spark-hive_${scala.compat.version}</artifactId>
+            <artifactId>spark-hive_${scala.binary.version}</artifactId>
             <version>${spark.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.hudi</groupId>
-            <artifactId>hudi-spark3.1-bundle_${scala.compat.version}</artifactId>
+            <artifactId>hudi-spark3.1-bundle_${scala.binary.version}</artifactId>
             <version>${hudi.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.hudi</groupId>
-            <artifactId>hudi-utilities-bundle_${scala.compat.version}</artifactId>
+            <artifactId>hudi-utilities-bundle_${scala.binary.version}</artifactId>
             <version>${hudi.version}</version>
         </dependency>
         <dependency>
