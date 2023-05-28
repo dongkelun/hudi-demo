@@ -12,6 +12,7 @@ Apache Hudi 代码示例.
 * [Hudi Spark SQL总结](https://mp.weixin.qq.com/s/hII86LSXPankmLarIZu9rg)
 * [利用Hudi Bootstrap转化现有Hive表的parquet/orc文件为Hudi表](https://mp.weixin.qq.com/s/p_qKMSt7WJigu2vd4qlYlQ)
 * [Hudi Java Client总结|读取Hive写Hudi代码示例](https://mp.weixin.qq.com/s/5raMUByVGDyVYMeAdW-LRw)
+* [Flink Hudi DataStream API代码示例](https://mp.weixin.qq.com/s/83lMpbLCM3Mlb3fg_rEddw)
 
 ### 源码分析
 * [Hudi源码|bootstrap源码分析总结（写Hudi）](https://mp.weixin.qq.com/s/9SOH3kOid0GSN31hF6M4dg)

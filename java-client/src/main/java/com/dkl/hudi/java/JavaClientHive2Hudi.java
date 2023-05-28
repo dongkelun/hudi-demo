@@ -53,7 +53,7 @@ import static org.apache.hudi.config.HoodieIndexConfig.BLOOM_INDEX_FILTER_DYNAMI
  * 可自行模拟读取mysql增量数据同步Hudi表
  */
 public class JavaClientHive2Hudi {
-    private static final Logger LOG = LogManager.getLogger(HoodieJavaWriteClientExample.class);
+    private static final Logger LOG = LogManager.getLogger(JavaClientHive2Hudi.class);
 
     private static final String TABLE_TYPE = HoodieTableType.COPY_ON_WRITE.name();
 
