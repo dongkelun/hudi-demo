@@ -11,15 +11,18 @@ import java.util.concurrent.ExecutionException;
 
 import static com.dkl.hudi.flink.Configurations.sql;
 
-public class HudiFlinkSQL {
+public class TestMOR {
 
     public static void main(String[] args) {
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
         StreamTableEnvironment tableEnv = StreamTableEnvironment.create(env, EnvironmentSettings.inBatchMode());
-        String tableName = "t1";
+//        StreamTableEnvironment tableEnv = StreamTableEnvironment.create(env, EnvironmentSettings.inStreamingMode());
+//        StreamTableEnvironment tableEnv = StreamTableEnvironment.create(env);
+        String tableName = "test_mor";
         if (args.length > 0) {
             tableName = args[0];
         }
+
         String tablePath = "/tmp/flink/hudi/" + tableName;
         String hoodieTableDDL = sql(tableName)
                 .field("id int")
@@ -30,13 +33,20 @@ public class HudiFlinkSQL {
                 .option(FlinkOptions.PATH, tablePath)
 //                .option(FlinkOptions.READ_AS_STREAMING, true)
                 .option(FlinkOptions.OPERATION, WriteOperationType.INSERT)
-//                .option(FlinkOptions.TABLE_TYPE, "COPY_ON_WRITE")
+                .option(FlinkOptions.TABLE_TYPE, "MERGE_ON_READ")
+                .option("compaction.async.enabled", false)
+                .option("compaction.delta_commits", 1)
+//                .option("compaction.tasks", "4")
+                .option("hoodie.compact.inline", true)
+//                .option("hoodie.compact.schedule.inline", true) // 不要设置此参数
+//                .option("hoodie.log.compaction.inline", true) // 不要设置此参数
+                .option("hoodie.compact.inline.max.delta.commits", 1)
                 .partitionField("dt")
                 .pkField("id")
                 .end();
-        tableEnv.executeSql(hoodieTableDDL);
 
-        TableResult insertResult = tableEnv.executeSql(String.format("insert into %s values (1,'hudi',10,100,'2023-05-28')", tableName));
+        tableEnv.executeSql(hoodieTableDDL);
+        TableResult insertResult = tableEnv.executeSql(String.format("insert into %s values (1,'hudi',1,100,'2024-05-22')", tableName));
         try {
             insertResult.getJobClient().get().getJobExecutionResult().get();
         } catch (InterruptedException | ExecutionException ex) {

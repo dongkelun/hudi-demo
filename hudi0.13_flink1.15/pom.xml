@@ -17,6 +17,7 @@
         <scala.binary.version>2.12</scala.binary.version>
         <flink.version>1.15.4</flink.version>
         <hudi.version>0.13.0</hudi.version>
+        <log4j12.version>1.7.25</log4j12.version>
     </properties>
     <dependencies>
         <dependency>
@@ -67,11 +68,6 @@
             <scope>runtime</scope>
         </dependency>
         <dependency>
-            <groupId>org.apache.hudi</groupId>
-            <artifactId>hudi-examples-flink</artifactId>
-            <version>${hudi.version}</version>
-        </dependency>
-        <dependency>
             <groupId>org.apache.hadoop</groupId>
             <artifactId>hadoop-common</artifactId>
             <version>${hadoop.version}</version>
@@ -95,20 +91,13 @@
                 </exclusion>
             </exclusions>
         </dependency>
-        <dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
-            <version>1.2.17</version>
-            <scope>runtime</scope>
-        </dependency>
         <!--        用于Idea本地调试Hudi end   -->
 
         <!--   用于Idea本地调试打印Flink日志 begin -->
         <dependency>
             <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-simple</artifactId>
-            <version>1.7.31</version>
-            <scope>runtime</scope>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>${log4j12.version}</version>
         </dependency>
         <!--   用于Idea本地调试打印Flink日志 end  -->
     </dependencies>

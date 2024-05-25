@@ -2,7 +2,7 @@ package com.dkl.hudi.flink;
 
 import org.apache.hudi.configuration.FlinkOptions;
 
-import static org.apache.hudi.examples.quickstart.utils.QuickstartConfigurations.sql;
+import static com.dkl.hudi.flink.Configurations.sql;
 
 public class TableDDLDemo {
     public static void main(String[] args) {
