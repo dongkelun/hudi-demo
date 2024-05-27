@@ -46,7 +46,7 @@ public class TestMOR {
                 .end();
 
         tableEnv.executeSql(hoodieTableDDL);
-        TableResult insertResult = tableEnv.executeSql(String.format("insert into %s values (1,'hudi',1,100,'2024-05-22')", tableName));
+        TableResult insertResult = tableEnv.executeSql(String.format("insert into %s values (1,'hudi',10,100,'2024-05-22')", tableName));
         try {
             insertResult.getJobClient().get().getJobExecutionResult().get();
         } catch (InterruptedException | ExecutionException ex) {
