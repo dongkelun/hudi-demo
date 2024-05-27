@@ -11,7 +11,10 @@ import java.util.concurrent.ExecutionException;
 
 import static com.dkl.hudi.flink.Configurations.sql;
 
-public class TestMOR {
+/**
+ * 测试批写MOR表
+ */
+public class TestBatchMOR {
 
     public static void main(String[] args) {
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
