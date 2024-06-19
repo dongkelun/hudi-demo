@@ -137,13 +137,6 @@ public class JavaClientHive2Hudi {
 
             Path path = new Path(tablePath);
             Path hoodiePath = new Path(tablePath + "/" + HoodieTableMetaClient.METAFOLDER_NAME);
-            if (!fs.exists(path)) { //根据Hudi路径存不存在，判断Hudi表需不需要初始化
-                HoodieTableMetaClient.withPropertyBuilder()
-                        .setTableType(TABLE_TYPE)
-                        .setTableName(targetTable)
-                        .setPayloadClassName(HoodieAvroPayload.class.getName())
-                        .initTable(hadoopConf, tablePath);
-            }
 
             List<String> writeFiledNames = writeSchema.getFields().stream().map(Schema.Field::name).collect(Collectors.toList());
             boolean shouldCombine = writeOperationType.equals(UPSERT_OPERATION) && writeFiledNames.contains(preCombineField);
