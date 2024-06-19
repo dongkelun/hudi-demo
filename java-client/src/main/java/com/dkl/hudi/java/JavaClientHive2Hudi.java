@@ -123,9 +123,11 @@ public class JavaClientHive2Hudi {
             options.put("dbtable", dbName + "." + sourceTable);
             options.put("nullable", "true");
             conn = createConnectionFactory(options);
-            // 读取Hive表的Schema作为写Hudi表的Schema
-            // 也可以先建好Hudi目标表，直接读取Hudi表的Schema作为写Hudi表的Schema
-            // 也可以像 #{@link HoodieJavaWriteClientExample}中一样直接提供一个Schema字符串
+            /**
+             * 读取Hive表的Schema作为写Hudi表的Schema
+             * 也可以先建好Hudi目标表，直接读取Hudi表的Schema作为写Hudi表的Schema
+             * 也可以像 #{@link HoodieJavaWriteClientExample}中一样直接提供一个Schema字符串
+             */
             Schema writeSchema = getJDBCSchema(options);
 
             Configuration hadoopConf = new Configuration();
