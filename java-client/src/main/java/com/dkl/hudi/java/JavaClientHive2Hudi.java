@@ -28,6 +28,7 @@ import org.apache.hudi.hive.MultiPartKeysValueExtractor;
 import org.apache.hudi.hive.ddl.HiveSyncMode;
 import org.apache.hudi.index.HoodieIndex;
 import org.apache.hudi.sync.common.HoodieSyncConfig;
+import org.apache.hudi.sync.common.util.ConfigUtils;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.apache.spark.sql.avro.SchemaConverters;
@@ -210,6 +211,7 @@ public class JavaClientHive2Hudi {
 
         } catch (Exception e) {
             LOG.error(e);
+            e.printStackTrace();
         } finally {
             close(conn);
             cleanupClients();
@@ -251,6 +253,10 @@ public class JavaClientHive2Hudi {
         properties.put(HoodieSyncConfig.META_SYNC_BASE_PATH.key(), basePath);
         properties.put(HoodieSyncConfig.META_SYNC_PARTITION_EXTRACTOR_CLASS.key(), MultiPartKeysValueExtractor.class.getName());
         properties.put(HoodieSyncConfig.META_SYNC_PARTITION_FIELDS.key(), partitionFields);
+        Map<String, String> tableProperties = new HashMap();
+        tableProperties.put("test_key1", "test_val1");
+        tableProperties.put("test_key2", "test_val2");
+        properties.put(HiveSyncConfigHolder.HIVE_TABLE_PROPERTIES.key(), ConfigUtils.configToString(tableProperties));
         if (partitionFields != null && !partitionFields.isEmpty()) {
             properties.put(HoodieSyncConfig.META_SYNC_PARTITION_FIELDS.key(), partitionFields);
         }
