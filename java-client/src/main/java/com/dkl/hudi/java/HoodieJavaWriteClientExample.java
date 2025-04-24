@@ -35,6 +35,7 @@ import org.apache.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 import java.util.stream.Collectors;
 
 
@@ -67,11 +68,13 @@ public class HoodieJavaWriteClientExample {
     Path path = new Path(tablePath);
     FileSystem fs = FSUtils.getFs(tablePath, hadoopConf);
     if (!fs.exists(path)) {
-      HoodieTableMetaClient.withPropertyBuilder()
+      Properties properties = HoodieTableMetaClient.withPropertyBuilder()
         .setTableType(tableType)
         .setTableName(tableName)
         .setPayloadClassName(HoodieAvroPayload.class.getName())
-        .initTable(hadoopConf, tablePath);
+        .build();
+      properties.put("test_key", "test_val");
+      HoodieTableMetaClient.initTableAndGetMetaClient(hadoopConf, tablePath, properties);
     }
 
     // Create the write client to write some records in
