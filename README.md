@@ -8,7 +8,7 @@ Apache Hudi 代码示例.
 ```
 
 ## 相关文章
-* [Apache Hudi 入门学习总结](https://mp.weixin.qq.com/s/5raMUByVGDyVYMeAdW-LRw)
+* [Apache Hudi 入门学习总结](https://mp.weixin.qq.com/s/9cKherIGgeVxBeqY39nL2Q)
 * [Hudi Spark SQL总结](https://mp.weixin.qq.com/s/hII86LSXPankmLarIZu9rg)
 * [利用Hudi Bootstrap转化现有Hive表的parquet/orc文件为Hudi表](https://mp.weixin.qq.com/s/p_qKMSt7WJigu2vd4qlYlQ)
 * [Hudi Java Client总结|读取Hive写Hudi代码示例](https://mp.weixin.qq.com/s/5raMUByVGDyVYMeAdW-LRw)
